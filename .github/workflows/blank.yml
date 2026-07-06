@@ -1,7 +1,7 @@
 name: Hello World Concurrent
 
 on:
-  workflow_dispatch:
+  push:
 
 jobs:
   hello:
