@@ -14,6 +14,7 @@ jobs:
           echo "two"
   hello1:
     runs-on: ubuntu-latest
+    needs: hello
 
     steps:
       - name: Hello Step
@@ -22,6 +23,7 @@ jobs:
           echo "two"
   hello3:
     runs-on: ubuntu-latest
+    needs: hello1
 
     steps:
       - name: Hello Step
