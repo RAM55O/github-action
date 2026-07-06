@@ -11,7 +11,7 @@ jobs:
       - name: Hello Step
         run: |
           echo "one"
-          echo "two:
+          echo "two"
   hello1:
     runs-on: ubuntu-latest
 
