@@ -1,10 +1,14 @@
-name : hellow world concurren
-on : workflow_dispatch
+name: Hello World Concurrent
+
+on:
+  workflow_dispatch:
+
 jobs:
-  hellow :
-      runs-on: ubuntu-latest
-      steps:
-        - name: hellow step
+  hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Hello Step
         run: |
-          echo "one "
-          echo "two "
+          echo "one"
+          echo "two"
