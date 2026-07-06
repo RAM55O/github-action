@@ -1,0 +1,10 @@
+name : hellow world concurren
+on : workflow_dispatch
+jobs:
+  hellow :
+      runs-on: ubuntu-latest
+      steps:
+        - name: hellow step
+        run: |
+          echo "one "
+          echo "two "
