@@ -4,11 +4,11 @@ on:
   push:
     branches :
       - main
+      - features/login
       - develop
       - 'release/**'
   pull_request:
-    types:
-      - opened
+    
     branches:
       - main
 
