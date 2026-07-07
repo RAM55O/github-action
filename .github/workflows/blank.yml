@@ -1,41 +1,10 @@
-name: Hello World Concurrent
-
-on:
-  push:
-    branches :
-      - main
-      - develop
-      - 'release/**'
-  pull_request:
-    branches:
-      - main
-
-
-
+name: github action
+on: push
 jobs:
-  hello:
+  action-demo:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Hello Step
-        run: |
-          echo "one"
-          echo "two"
-  hello1:
-    runs-on: ubuntu-latest
-    needs: hello
-
-    steps:
-      - name: Hello Step
-        run: |
-          echo "one"
-          echo "two"
-  hello3:
-    runs-on: ubuntu-latest
-    needs: hello1
-
-    steps:
-      - name: Hello Step
-        run: |
-          echo "one"
-          echo "two"          
+      - name: checkout the code
+        uses: actions/checkout@v4
+      - name: print index.html file
+        run: cat index.html
