@@ -31,6 +31,7 @@ jobs:
       - name: Hello Step
         run: |
           echo "hellow , ${{vars.my}}"
+          echo "hellow "
           echo "one"
           echo "two"
   hello3:
