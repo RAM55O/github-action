@@ -1,0 +1,57 @@
+name: CI/CD Example
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - 'feature/**'
+
+jobs:
+  quality_checks:
+    if: startsWith(github.ref_name, 'feature/')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Perform Code Quality Check
+        run: echo "Performing code quality checks"
+
+  dev_deploy:
+    if: github.ref_name == 'develop'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to Development
+        run: echo "Deploying application to Development"
+
+  prod_deploy:
+    if: github.ref_name == 'main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to Production
+        run: echo "Deploying application to Production"
+
+  success:
+    if: always() && !failure()
+    needs:
+      - quality_checks
+      - dev_deploy
+      - prod_deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Success Notification
+        run: echo "Email sent to the team - Deployment Successful"
+
+  failure:
+    if: failure()
+    needs:
+      - quality_checks
+      - dev_deploy
+      - prod_deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Failure Notification
+        run: echo "Email sent to the team - Deployment Failed"
